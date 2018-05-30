@@ -11,20 +11,20 @@
 				<label for="email">Email address</label>
 				<input id="email" placeholder="email" value="" type="email" pattern="[^ @]*@[^ @]*" class="marginBottom" />
 				<label for="password">Password</label>
-				<input id="password" placeholder="password" value="" type="password" />
-				<ons-gesture-detector>
-				  <div id="detect-area" style="width: 100px; height: 100px;">
-				    Swipe Here
-				  </div>
-				</ons-gesture-detector>
+				<input id="password" placeholder="password" value="" type="password" />	
 			</fieldset>
-
 			<br />
 			<button id="login-button" data-theme="e" data-icon="arrow-r" data-shadow="false">Sign In</button>
 		</div>
 		<br />
 			
 		<div class="hr"><hr /></div>
+
+		<ons-gesture-detector>
+			  <div id="detect-area" style="width: 200px; height: 300px; background-color: red;">
+			    Swipe Here
+			  </div>
+			</ons-gesture-detector>
 
 		
 		<div style="<%= demoModeStyle %>">
@@ -42,3 +42,11 @@
 		</div>
 	</div>
 </ons-page>
+<script>
+  document.addEventListener('swipeleft', function(event) {
+    if (event.target.matches('#detect-area')) {
+    	pushPage('homeTemplate.html', {data: {title: 'Page 2'}});
+      console.log('Swipe left is detected.');
+    }
+  });
+</script>

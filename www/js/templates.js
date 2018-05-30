@@ -461,13 +461,18 @@ oeTemplates['LoginTemplate.html'] = "<!-- LoginTemplate -->\n" +
     "				<label for=\"password\">Password</label>\n" +
     "				<input id=\"password\" placeholder=\"password\" value=\"\" type=\"password\" />	\n" +
     "			</fieldset>\n" +
-    "\n" +
     "			<br />\n" +
     "			<button id=\"login-button\" data-theme=\"e\" data-icon=\"arrow-r\" data-shadow=\"false\">Sign In</button>\n" +
     "		</div>\n" +
     "		<br />\n" +
     "			\n" +
     "		<div class=\"hr\"><hr /></div>\n" +
+    "\n" +
+    "		<ons-gesture-detector>\n" +
+    "			  <div id=\"detect-area\" style=\"width: 200px; height: 300px; background-color: red;\">\n" +
+    "			    Swipe Here\n" +
+    "			  </div>\n" +
+    "			</ons-gesture-detector>\n" +
     "\n" +
     "		\n" +
     "		<div style=\"<%= demoModeStyle %>\">\n" +
@@ -485,6 +490,14 @@ oeTemplates['LoginTemplate.html'] = "<!-- LoginTemplate -->\n" +
     "		</div>\n" +
     "	</div>\n" +
     "</ons-page>\n" +
+    "<script>\n" +
+    "  document.addEventListener('swipeleft', function(event) {\n" +
+    "    if (event.target.matches('#detect-area')) {\n" +
+    "    	pushPage('homeTemplate.html', {data: {title: 'Page 2'}});\n" +
+    "      console.log('Swipe left is detected.');\n" +
+    "    }\n" +
+    "  });\n" +
+    "</script>\n" +
     ""; 
 if(typeof oeTemplates === 'undefined') {var oeTemplates = {};}
 oeTemplates['MCQAnsweredTemplate.html'] = "<!-- MCQAnsweredTemplate -->\n" +
