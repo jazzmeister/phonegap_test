@@ -1,0 +1,193 @@
+<!-- RevisionOptionsTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1 id="revisionOptionsTitle">Revision Options</h1>						
+	</div>
+	<div data-role="content">
+		<div id="revisionOptionsLoading">Loading... <img src="css/images/loader.gif" class="loading-spinner"></div>
+		<div id="revisionOptions" style="display:none; padding-bottom:150px;">
+
+			<div data-role="fieldcontain" style="display: none;">
+				<h1 class="pageHeading">How would you like to Revise?</h1>					
+				<label for="revisionType" class="fullWidth marginTop">Choose your Revision Style:</label>
+				<select name="revisionType" data-theme="e" id="revisionType">
+					<option value="WorkHard">
+						Work Hard
+					</option>
+					<option value="WorkSmart">
+						Work Smart
+					</option>					
+					<!--
+					<option value="PastPaper">
+						Past Paper
+					</option>
+					-->
+				</select>
+			</div>
+			
+			<!-- Past Paper Filters: -->
+			<div data-role="fieldcontain" style="display: none;" id="pastPaperGroup">
+				<label for="pastPaper" class="fullWidth">Select a Past Paper</label>
+				<select name="pastPaper" data-theme="e" id="pastPaper">
+					<option value="Test">Test</option>					
+				</select>
+			</div>
+			
+			<!-- Work Smart Filters: -->
+			<div id="workSmartGroup" style="display: none;">
+				<div data-role="fieldcontain">
+					<label for="questionStatus" class="fullWidth">With Questions:</label>
+					<select name="questionStatus" id="questionStatus" data-theme="e">
+						<option value="NotSeen">
+							I have not seen before
+						</option>
+						<option value="AllQuestions">
+							All Questions
+						</option>
+						<option value="WrongQuestions">
+							I have got wrong before
+						</option>
+						<!--
+						<option value="TaggedQuestions">
+							I have tagged
+						</option>
+						-->
+					</select>
+				</div>					
+				
+				<div data-role="fieldcontain">
+					<label for="questionCategory" class="fullWidth">Filter by Category:</label>
+					<select name="questionCategory" id="questionCategory" data-theme="e">
+						<option value="AllCategories">
+							All Categories
+						</option>
+						<option value="SelectCategories">
+							Select Categories
+						</option>
+					</select>
+				</div>
+				
+				<div data-role="fieldcontain" id="questionCategorySection" style="display:none;">
+					<div data-role="controlgroup" data-type="horizontal" style='padding-bottom:10px;'>
+						<legend>Categories:</legend>
+						<button id="selectAllCats" data-theme="e">Select All</button>
+						<button id="selectNoCats" data-theme="e">Select None</button>
+					</div>			
+				
+					<fieldset data-role="controlgroup" id="questionCategoryList">											
+					</fieldset>				
+				</div>
+
+
+
+				<!-- Advanced filters -->
+				<div data-role="fieldcontain">
+					<input type="checkbox" name="workSmartAdvancedFilter" data-theme="a" id="workSmartAdvancedFilter" value="false" />
+    				<label for="workSmartAdvancedFilter">Show Advanced Options</label>
+				</div>
+
+				<div id="workSmartAdvancedFilterSection" style="display:none; padding-left:20px; padding-top:5px;">
+					<div data-role="fieldcontain">
+						<label for="showAnswerAfterQuestion" class="fullWidth">Revision Type:</label>
+						<select name="showAnswerAfterQuestion" id="showAnswerAfterQuestion" data-theme="e">
+							<option value="true">
+								Revision <i>(Show Answers)</i>
+							</option>
+							<option value="false">
+								Exam <i>(Hide Answers)</i>
+							</option>
+						</select>
+					</div>		
+				
+					<div data-role="fieldcontain">
+						<label for="questionDifficulty" class="fullWidth">Question Difficulty:</label>
+						<select name="questionDifficulty" id="questionDifficulty" data-theme="e">
+							<option value="AllQuestions">
+								All Questions
+							</option>
+							<option value="SelectDifficulty">
+								Select Difficulty
+							</option>						
+						</select>
+						<div id="difficultySliderGroup" style="display: none;">
+							<div class="sliderWrapper">
+								<span class="diffEasy">Easy</span><span class="diffHard">Hard</span>
+								<input type="range" name="slider" data-theme="e" data-track-theme="a" id="questionDifficultyValue" value="5" min="0" max="10" data-highlight="true" class="ui-hidden-accessible diffSlider" />
+							</div>
+						</div>
+					</div>
+								
+					
+
+
+					<div data-role="fieldcontain">
+						<label for="questionTags" class="fullWidth">Filter by Tags:</label>
+						<select name="questionTags" id="questionTags" data-theme="e">
+							<option value="AllQuestionTags">
+								All Tags
+							</option>
+							<option value="SelectQuestionTags">
+								Select Tags
+							</option>
+						</select>
+					</div>
+					<div data-role="fieldcontain" id="questionTagsSection" style="display:none;">
+						<fieldset data-role="controlgroup" id="questionTagsList">											
+						</fieldset>
+					</div>		    
+				</div>
+			</div>		
+			
+			<!-- Shared question type filter -->    
+			<div id="questionTypeFilterSection">
+				<div data-role="fieldcontain">
+					<label for="questionType" class="fullWidth">Filter by Question Type:</label>
+					<select name="questionType" id="questionType" data-theme="e">
+						<option value="AllQuestionTypes">
+							All Types
+						</option>
+						<option value="SelectQuestionTypes">
+							Select Types
+						</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain" id="questionTypeSection" style="display:none;">
+					<fieldset data-role="controlgroup" id="questionTypeList">											
+					</fieldset>
+				</div>
+			</div>
+			
+			
+			<!-- Shared number of question filter -->						
+			<div data-role="fieldcontain" class="marginBottom">
+				<label for="questionLimit" class="fullWidth">Number of Questions:</label>
+				<select name="questionLimit" data-theme="e" id="questionLimit">					
+					<option value="10">10 questions</option>
+					<option value="20">20 questions</option>
+					<option value="30">30 questions</option>
+					<option value="40">40 questions</option>
+					<option value="50">50 questions</option>
+					<option value="60">60 questions</option>
+					<option value="70">70 questions</option>
+					<option value="80">80 questions</option>
+					<option value="90">90 questions</option>
+					<option value="100">100 questions</option>
+				</select>
+			</div>							
+			
+			<div id="workHardStatus" class="progress-bar">
+				<div class="progress-bar-inner"></div>
+				<p class="progress-text"></p>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed" data-tap-toggle="false">
+		<div style="padding-top:5px; padding-bottom:15px; padding-left:5px; padding-right:5px;">
+			<div style="padding-top:5px; padding-bottom:5px;">
+				<div id="revisionFilterSummary"></div>
+			</div>
+			<button id="startQuestions" data-icon="check" data-theme="b" data-shadow="false">Start Questions</button>			
+		</div>
+	</div>
+</ons-page>

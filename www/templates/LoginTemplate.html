@@ -1,0 +1,39 @@
+<!-- LoginTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1>Sign In</h1>
+	</div>
+	<div data-role="content" class="login">
+		<h1 class="pageHeading">Sign in to your account:</h1>
+		<div class="ui-hide-label">
+			<fieldset data-role="controlgroup">
+				<label for="email">Email address</label>
+				<input id="email" placeholder="email" value="" type="email" pattern="[^ @]*@[^ @]*" class="marginBottom" />
+				<label for="password">Password</label>
+				<input id="password" placeholder="password" value="" type="password" />	
+			</fieldset>
+
+			<br />
+			<button id="login-button" data-theme="e" data-icon="arrow-r" data-shadow="false">Sign In</button>
+		</div>
+		<br />
+			
+		<div class="hr"><hr /></div>
+
+		
+		<div style="<%= demoModeStyle %>">
+			<div>
+				<h4>Don't have a BMJ OnExamination account?</h4>
+			</div>
+			<fieldset data-role="controlgroup">
+				<a href='#SelectDemoExam' data-role="button" data-theme="e">Try our Demo Questions</a>   
+			</fieldset>
+		</div>
+		<br />
+		<div class="clear"></div>
+		<div class="webLink">
+			<a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">Find out more about BMJ OnExamination.</a>  	
+		</div>
+	</div>
+</ons-page>

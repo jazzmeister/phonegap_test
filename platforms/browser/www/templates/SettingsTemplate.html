@@ -1,0 +1,60 @@
+<!-- SettingsTemplate -->
+<ons-page data-side="right">
+    <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    	<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+    	<h1>Settings</h1>
+    </div>
+
+    <div data-role="content" class="settings">
+    
+	    <div class="logout">
+			<h4>Log Out and clear Sign In details</h4>
+			<button id="clearSignIn" data-theme="e" data-icon="alert" data-shadow="false">Log Out</button>
+	    </div>
+	    <br />
+		<span style="<%= sessionStyle %>"><%= sessionState %></span>
+
+	    <div class="hr" style="margin-top:40px; margin-bottom:40px;"><hr /></div>
+
+		<div style="<%= appLib.cssDisplay(sessionActive && notificationsEnabled) %>">
+			<h4>Daily Notification</h4>
+			<button class="showNotificationDialog" data-theme="e" data-shadow="false">Configure Daily Notification</button>				
+			<% if(!isMinified) { %>
+				<button id="testNotificationQuestion" data-theme="e" data-shadow="false">Test Notification Question</button>
+			<% } %>
+
+			<div class="hr" style="margin-top:40px; margin-bottom:40px;"><hr /></div>
+		</div>		    			    			
+
+	    <div class="appInfo">
+			<h3 style='margin:0;'>BMJ OnExamination mobile app</h3>
+			<p>Version <%= version %></p>
+			<p>&copy; 2018 BMJ Publishing Group Ltd. All rights reserved</p>
+		
+			<div style="padding: 10px 0 20px 0;">
+				<button id="rateApp" data-icon="comment" data-iconpos="right" data-theme="b" data-shadow="false">Rate this app</button>
+			</div>
+
+			<div data-role="controlgroup">				    					
+			    <a href="#TermsConditions" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e" data-shadow="false">Terms &amp; Conditions</a>
+			    <a href="#PrivacyPolicy" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e" data-shadow="false">Privacy Policy</a>
+			</div>
+		
+			<div class="hr" style="margin-top:40px; margin-bottom:40px;"><hr /></div>
+
+			<button id="showLog" data-theme="e" data-shadow="false">Technical Support</button>
+
+			<% if(allowBetaMode) { %>
+				<div style="padding-top: 20px;"></div>
+				<button id="enableBetaMode" data-theme="c" data-shadow="false">Use Beta API</button>
+			<% } %>
+	    </div>
+
+	    <br /><br />
+	    
+	    <div class="webLink">
+			<a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">Find out more about BMJ OnExamination.</a>  	
+	    </div>
+      
+    </div>
+</ons-page>

@@ -1,0 +1,69 @@
+<!-- SessionReviewTemplate -->
+<!-- Review Session -->
+
+<ons-page>
+	<div data-role="header">
+	    <a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+	    <h1>Session Review</h1>
+	</div>
+
+	<div data-role="content" class="sessionResults">
+		<div style="background-color:#FAFAFA; padding:15px; border:1px solid #CCC; margin-bottom:50px; <%= (isDemo && appLib.getDevice() == 'android' ? '' : 'display:none;') %>">
+	    	<span style="display:block; text-align:center;">
+	    		<img src="img/logo.png" style="width:100%; max-width:377px; max-height:76px;" />	    		
+	    	</span>
+	    	<div style="text-align:center;">
+	    		<p style="padding:10px 0;"><span style="font-weight:bold;">Thanks for trying our demo questions!</span><br /><br />Why not sign up to BMJ OnExamination to get access to quality questions and expert clinical advice.</p>
+	    		
+    			<a id="shopLink" data-role="button" data-inline="true" data-theme="d" data-shadow="false" data-iconshadow="false">Visit the BMJ OnExamination Shop</a>		    		
+	    	</div>
+	    </div>			    
+
+	    <div class="sessionScore ui-grid-b">
+			<div class="ui-block-a"><p>You<br />scored<br /><span class="sessionStat"><%= percentCorrect %></span><span class="percentageSign">&#37;</span></p></div>
+			<div class="ui-block-b"><p>Questions<br />answered<br /><span class="sessionStat"><%= questionsAnswered %></span></p></div>
+			<div class="ui-block-c"><p>Questions<br />correct<br /><span class="sessionStat"><%= questionsCorrect %></span></p></div>
+	    </div>
+	    <div style="text-align:center;font-style:italics;background-color:#2a6ebb;color:white;padding:5px;<%= appLib.cssDisplay(assessmentSummary.length > 0) %>">
+	    	<%= assessmentSummary %>	    		
+    	</div>
+	    <div class="graphWrapper">
+			<div id="livePie" class="graph"></div>
+	    </div>
+		
+		<div id="keyLearningPointsSection" style="display:none;">
+			<h1 class="pageHeading" style="color: #2a6ebb;">Key Learning Points</h1>
+			<div id="keyLearningPoints"></div>
+		</div>
+				
+	    <div class="sessionStatus">
+			<span>Status: </span>
+			<span id="reviewStatus">Processing results...</span>
+	    </div>
+	    <div class="uploadAnswersButton">	
+			<a data-role="button" data-theme="e" data-icon="refresh" style="display:none;" id="uploadAnswersButton" data-shadow="false">Try Upload Again</a>
+	    </div>			    			   
+
+		<div id="reviewMainMenuButton" style="display:none;">			
+			<div id="challengeFriendSection" style="<%= challengeButtonStyle %>">
+		    	<a id="challengeFriend" data-role="button" data-theme="d" data-icon="user" data-shadow="false" data-iconshadow="false">Share Questions</a>			    		    	
+		    	<div style="padding:8px;"></div>
+		    </div>
+		    
+			<a id="reviewSession" data-role="button" data-theme="b" data-icon="check" data-shadow="false">Review Answered Questions</a>			
+			<div style="padding:32px;"></div>
+
+			<% if(!isDemo && !isChallenge) { %>
+				<a href="#RevisionTypeMenu" data-role="button" data-theme="e" data-icon="forward" data-shadow="false">Start New Revision Session</a>
+				<div style="padding:8px;"></div>
+			<% } %>
+
+			<a href="#" data-role="button" data-theme="e" data-icon="home" data-shadow="false">Home</a>			
+		</div>
+		
+		<div style="min-height: 50px;"></div>
+	    <div class="webLink" style=>
+			<a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">Get more revision from BMJ OnExamination.</a>  	
+	    </div>
+	</div>
+</ons-page>

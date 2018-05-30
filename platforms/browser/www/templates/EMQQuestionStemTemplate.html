@@ -1,0 +1,12 @@
+<!-- EMQAnsweredTemplate -->
+<!-- EMQ Question Stem -->
+
+<div class="emqQuestionStem">
+	<span class="emqStemText" style="<%= style %>"><%= text %></span>
+	<span class="emqOption">
+		<select id="stem-<%= id %>" data-theme="e" data-additional-answer="<%= isAdditionalAnswer %>" >
+			<option value="-1">Please select an option</option>
+			<%= choiceHtml %>
+		</select>
+	</span>
+</div>

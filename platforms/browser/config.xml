@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.bmjgroup.onexamination" version="1.9.82" versionCode="223" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+    <feature name="Device">
+        <param name="browser-package" value="Device" />
+    </feature>
+    <name>BMJ OnExam</name>
+    <description>
+	Test your medical knowledge with quality, exam format revision questions from OnExamination. We have provided medical revision since 1996 and have helped over 167,000 medical professionals revise for their exams.
+
+You can choose to revise with or without a data connection, enabling you to answer questions both on and offline. Fit in your revision when you are on the ward, travelling or just away from your laptop or computer.
+
+There is a selection of free questions available for you to try on your phone or tablet as a sample of what we offer. Simply select the resource you want from the drop down menu and try our medical questions for free. 
+
+Our clinically rich case problems test your knowledge across a range of relevant topics and question formats. Our app is available on a range of our revision resources including: MRCP Part 1, MRCP Part 2 written, MRCGP, GPST, Medical Student Finals, Situational Judgement Test for Medical Students, Medical Student Years 2-3, Medical Student Year 1, MRCOG Part 1, MRCOG Part 2, DRCOG, MRCPCH Part 1A&amp;B, MRCPCH Part 2, MRCS Part A Papers 1&amp;2, FRCS General Surgery, PLAB, FRCA Primary and many more.
+
+Choose to revise with either Work Smart - which allows you to answer questions by topic, level of difficulty or key word; or Work Hard - which delivers revision questions to you in a random order to fully prepare you for exam day. 
+
+Check your scores at the end of each session to see how well you performed.
+
+If you are a current OnExamination subscriber you will be able to download further questions while online, to revise with when you wish. You do not need a data connection once the questions have been downloaded to your device. All scores will be synchronised back to your account when you are back online.
+    </description>
+    <author email="support@onexamination.com" href="http://www.onexamination.com/mobile/">
+        BMJ Group Web Site
+    </author>
+    <content src="index.html" />
+    <icon src="icon.png" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <preference name="permissions" value="none" />
+    <preference name="orientation" value="portrait" />
+    <preference name="target-device" value="universal" />
+    <preference name="prerendered-icon" value="true" />
+    <preference name="detect-data-types" value="false" />
+    <preference name="exit-on-suspend" value="false" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="android-installLocation" value="auto" />
+    <preference name="webviewbounce" value="false" />
+    <preference name="stay-in-webview" value="false" />
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="FadeSplashScreen" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#2a6ebb" />
+    <preference name="disable-cursor" value="false" />
+</widget>

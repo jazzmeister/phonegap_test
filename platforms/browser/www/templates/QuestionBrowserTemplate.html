@@ -1,0 +1,45 @@
+<!-- QuestionBrowserTemplate -->
+<!-- Ask a BoF/NOM Question -->	
+
+<ons-page>    
+	<ons-toolbar>
+    	<% if(sessionType !== 'notification') { %>
+    		<div class="left">
+	        	<ons-toolbar-button class="inQuestionMenuButton">
+	        		<ons-icon icon="md-menu"></ons-icon>
+	        	</ons-toolbar-button>
+        	</div>
+        	<div class="center"><%= questionIndex %> of <%= questionCount %></div>
+        	<div class="right">
+	        	<ons-toolbar-button id="session-review-button" class="sessionReview" style="<%= reviewButtonStyle %>" >Review</ons-toolbar-button>
+    		</div>
+            
+    	<% } else { %>        	
+    		<div class="center">Daily Question</div>
+    	<% } %>
+    </ons-toolbar>
+
+    <div data-role="content" class="questionPage" >
+        <div class="question">
+	        <h1 class="questionHeading contentHeader">Question</h1>
+	        <%= text %>
+        </div>
+	
+        <fieldset data-role="controlgroup" id="optionList" >								
+	        <legend><%= selectText %></legend>
+	        <%= optionHtml %>
+        </fieldset>		
+		
+		<div class="ui-grid-solo">
+			<div class="ui-block-a marginTop answerButton">
+				<ons-button modifier="large" id="answer-button">Answer Question</ons-button>
+			</div>
+		</div>				
+
+		<div class="contentGap"></div>
+
+		<%= contentEnd %>
+	</div>
+
+	<%= footer %>
+</ons-page>

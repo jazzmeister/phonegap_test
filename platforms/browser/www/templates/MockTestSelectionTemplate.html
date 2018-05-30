@@ -1,0 +1,26 @@
+<!-- MockTestSelectionTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1>Mock Test</h1>						
+	</div>
+	<div data-role="content">			
+		<h1 class="pageHeading" style="padding-bottom:20px;">Select a Mock Test:</h1>			
+
+		<ul data-role="listview" data-theme="e" data-divider-theme="d" style="padding: 0px 20px;">								
+			<% 	_.each(assessmentTemplates, function(template) { %>
+				<li id="mockTestListButton">
+					<a class="mocktest" data-assessmenttemplateid="<%= template.Id %>">
+						<div style="float:left; padding-top:10px;">
+							<span class="oe-icon-mock-tests oe-icon"></span>
+						</div>
+						<div>
+							<h3><%= template.Name %></h3>
+							<p><%= template.Description %></p>
+						</div>
+					</a>
+				</li>
+			<% }); %>
+		</ul>
+	</div>
+</ons-page>

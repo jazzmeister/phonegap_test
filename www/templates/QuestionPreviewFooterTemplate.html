@@ -1,0 +1,14 @@
+<!-- QuestionPreviewFooterTemplate -->
+<div style="clear:both;">
+	<span>Q<%= id %>:</span> <%= text %>
+</div>
+<div style="padding-top:5px; min-width:250px;">
+	<div class="ui-grid-a" style="min-height:40px;">
+		<div class="ui-block-a" style="text-align:left;">
+			<button id="moveToPreviewQuestionButton" value="<%= id %>" data-theme="a" data-icon="arrow-r" data-iconpos="right" data-inline="true" data-mini="true">Go to Question</button>		
+		</div>
+		<div class="ui-block-b" style="text-align:right; <%= reviewButtonStyle %>">
+			<button id="sessionReviewButton" class="sessionReview" data-theme="a" data-icon="custom" data-inline="true" data-mini="true">Review</a>
+		</div>			
+	</div>
+</div>

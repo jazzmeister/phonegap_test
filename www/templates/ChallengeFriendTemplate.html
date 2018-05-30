@@ -1,0 +1,32 @@
+<!-- ChallengeFriendTemplate -->
+<h1 class="contentHeader" style="margin-top: 0px !important;">Challenge a Friend</h1>
+
+<% if(questionCount > 10) { %>
+	<p>You can only challenge others to assessments with 10 questions or less.</p>
+<% } else { %>
+	<% if(email === null) { %>
+		<p>Challenge a friend to this assessment by sharing a link with them. <i>They don't even need to be a BMJ OnExamination user!</i></p>
+		<p>Once they complete their assessment we will email you both to reveal the winner.</p>
+
+		<!--
+		<div style="padding:4px;"></div>
+		<input type="email" pattern="[^ @]*@[^ @]*" placeholder="Friend's Email" id="challengeFriendEmail">
+		-->
+
+		<!-- TEMP START -->
+		<div style="padding:4px;"></div>
+		<% if(allowShare) { %>
+			<a id="shareChallengeButton" data-role="button" data-theme="b" data-shadow="false">Share Challenge</a>							
+		<% } else { %>
+			<p style="color:green;">This feature is only available for Work Hard / Work Smart Assessments</p>
+		<% } %>
+		<!-- TEMP END -->
+
+		<!--
+		<div style="padding:4px;"></div>
+		<a id="challengeFriendButton" data-role="button" data-theme="d" data-shadow="false">Send Challenge</a>				
+		-->
+	<% } else { %>
+		<p>You have already made a challenge!</p>
+	<% } %>
+<% } %>

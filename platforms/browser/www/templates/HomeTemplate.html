@@ -1,0 +1,42 @@
+<!--HomeTemplate -->
+<ons-page>
+	<div data-role="header" class="home">
+	    <span class="logo">
+	    	<img src="img/logo.png" />
+	    </span>
+	</div>
+	
+	<div data-role="content" class="home">
+	    <h1 class="brandTagLine"></h1>
+	    <div class="buttonsWrapper">
+	    	<fieldset data-role="controlgroup" class="newSessionButton">
+	    		<ons-button modifier="large" id='newSessionButton'>Start New Revision Session</ons-button>  
+    		</fieldset>
+
+			<fieldset data-role="controlgroup" class="continueButton">
+			    <ons-button modifier="large" id='continueSessionButton' style="<%= continueButtonStyle %>"><%= continueButtonText %></ons-button>  
+			</fieldset>
+
+			<fieldset data-role="controlgroup"  class="challengeButton">
+			   	<ons-button modifier="large" id='receievedChallengeButton' style="<%= challengeButtonStyle %>">Received a challenge?</ons-button>
+		   	</fieldset>
+
+			<fieldset data-role="controlgroup" class="optionButtons">			    
+			    <a href="#Settings" data-role="button" data-icon="gear" data-iconpos="left" data-theme="e">Settings</a>
+			    <a href="#GettingStarted" data-role="button" data-icon="info" data-iconpos="left" data-theme="e">Information</a>
+			</fieldset>
+			<fieldset data-role="controlgroup"  class="challengeButton">
+				<a href="#ListChallenges" id="waitingChallenges" data-role="button" data-theme="d" data-icon="user" data-shadow="false" data-iconshadow="false" style="display:none;">-</a>
+			</fieldset>
+	    </div>
+	    <div class="mainImage">
+			<span>
+				<img src="img/StudentsLg.jpg" />
+			</span>
+	    </div>
+	    <div class="webLink">
+			<a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">Find out more about BMJ OnExamination.</a>  	
+	    </div>
+		<div id="mainmenu"></div>		
+	</div>
+</ons-page>

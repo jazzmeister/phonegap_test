@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.bmjgroup.onexamination" 
+		version="1.9.82" 
+		versionCode="223"
+		xmlns="http://www.w3.org/ns/widgets" 
+		xmlns:gap="http://phonegap.com/ns/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>BMJ OnExam</name>
+    <description>
+	Test your medical knowledge with quality, exam format revision questions from OnExamination. We have provided medical revision since 1996 and have helped over 167,000 medical professionals revise for their exams.
+
+You can choose to revise with or without a data connection, enabling you to answer questions both on and offline. Fit in your revision when you are on the ward, travelling or just away from your laptop or computer.
+
+There is a selection of free questions available for you to try on your phone or tablet as a sample of what we offer. Simply select the resource you want from the drop down menu and try our medical questions for free. 
+
+Our clinically rich case problems test your knowledge across a range of relevant topics and question formats. Our app is available on a range of our revision resources including: MRCP Part 1, MRCP Part 2 written, MRCGP, GPST, Medical Student Finals, Situational Judgement Test for Medical Students, Medical Student Years 2-3, Medical Student Year 1, MRCOG Part 1, MRCOG Part 2, DRCOG, MRCPCH Part 1A&amp;B, MRCPCH Part 2, MRCS Part A Papers 1&amp;2, FRCS General Surgery, PLAB, FRCA Primary and many more.
+
+Choose to revise with either Work Smart - which allows you to answer questions by topic, level of difficulty or key word; or Work Hard - which delivers revision questions to you in a random order to fully prepare you for exam day. 
+
+Check your scores at the end of each session to see how well you performed.
+
+If you are a current OnExamination subscriber you will be able to download further questions while online, to revise with when you wish. You do not need a data connection once the questions have been downloaded to your device. All scores will be synchronised back to your account when you are back online.
+    </description>
+    <author email="support@onexamination.com" href="http://www.onexamination.com/mobile/">
+        BMJ Group Web Site
+    </author>
+	
+	<content src="index.html" />
+
+	<preference name="permissions" value="none"/>
+<!--	
+	<gap:config-file platform="android" parent="/manifest">
+		<application android:hardwareAccelerated="false" />
+	</gap:config-file>
+-->	
+
+	
+
+    <platform name="ios">
+        <feature name="GAPlugin">
+            <param name="ios-package" value="com.adobe.plugins.GAPlugin" />
+        </feature>  
+    </platform>
+    <platform name="android">
+        <feature name="GAPlugin">
+            <param name="android-package" value="com.adobe.plugins.GAPlugin" />
+        </feature>  
+    </platform>
+    
+	<!-- http://stackoverflow.com/questions/23387007/phonegap-build-permissions-in-android -->
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+    <feature name="http://api.phonegap.com/1.0/notification"/>	
+
+	
+	<plugin name="cordova-plugin-device" spec="~1.1" />
+    <plugin name="cordova-plugin-device-motion" spec="~1.2" />    
+	<plugin name="cordova-plugin-dialogs" spec="~1.3" />
+	<plugin name="cordova-plugin-file" spec="~4.1" />
+	<plugin name="cordova-plugin-file-transfer" spec="~1.5" />    	
+	<plugin name="cordova-plugin-inappbrowser" spec="~1.2" />
+    <plugin name="cordova-plugin-network-information" spec="~1.2" />		    
+    <plugin name="cordova-plugin-whitelist" spec="~1.2" />		           			 
+	<plugin name="cordova-plugin-statusbar" spec="~2.3" />			
+	<plugin spec="https://github.com/phonegap-build/GAPlugin.git#3a68d38" source="git" />
+	<plugin name="cordova-plugin-datepicker" spec="~0.9" />
+	
+	<!-- Push Notifications -->
+    <plugin name="phonegap-plugin-push" spec="~1.9">
+    	<!-- Pre v2 of the push plugin uses the value set in PushNotification.init() -->
+        <!-- DEV: <param name="SENDER_ID" value="688406263350" /> -->
+        <!-- LIVE: <param name="SENDER_ID" value="1020767383441" /> -->
+        <param name="SENDER_ID" value="1020767383441" />
+    </plugin>
+
+    <!-- Social Share -->
+    <plugin name="cordova-plugin-x-socialsharing" spec="~5.1" />
+
+	<!-- Android only splash screen due to bug on iOS -->
+	<platform name="android">
+		<plugin name="cordova-plugin-splashscreen" spec="~3.2" />			
+	</platform>
+	
+	<platform name="ios">		
+		<feature name="StatusBar">
+            <param name="ios-package" value="CDVStatusBar" onload="true" />
+        </feature>		
+	</platform>
+	
+	<platform name="ios">
+		<!-- iOS 8.0+ -->
+		<!-- iPhone 6 Plus  -->
+		<icon src="img/ios/icon-60@3x.png" width="180" height="180" />
+		<!-- iOS 7.0+ -->
+		<!-- iPhone / iPod Touch  -->
+		<icon src="img/ios/icon-60.png" width="60" height="60" />
+		<icon src="img/ios/icon-60@2x.png" width="120" height="120" />
+		<!-- iPad -->
+		<icon src="img/ios/icon-76.png" width="76" height="76" />
+		<icon src="img/ios/icon-76@2x.png" width="152" height="152" />
+		<!-- iOS 6.1 -->
+		<!-- Spotlight Icon -->
+		<icon src="img/ios/icon-40.png" width="40" height="40" />
+		<icon src="img/ios/icon-40@2x.png" width="80" height="80" />
+		<!-- iPhone / iPod Touch -->
+		<icon src="img/ios/icon-57.png" width="57" height="57" />
+		<icon src="img/ios/icon-57@2x.png" width="114" height="114" />
+		<!-- iPad -->
+		<icon src="img/ios/icon-72.png" width="72" height="72" />
+		<icon src="img/ios/icon-72@2x.png" width="144" height="144" />
+		<!-- iPhone Spotlight and Settings Icon -->
+		<icon src="img/ios/icon-29.png" width="29" height="29" />
+		<icon src="img/ios/icon-29@2x.png" width="58" height="58" />
+		<!-- iPad Spotlight and Settings Icon -->
+		<icon src="img/ios/icon-50.png" width="50" height="50" />
+		<icon src="img/ios/icon-50@2x.png" width="100" height="100" />	
+		
+		<icon src="img/ios/icon-1024.png" width="1024" height="1024" />
+
+		<splash height="480" src="img/ios/screen-iphone-portrait.png" width="320" />
+		<splash height="960" src="img/ios/screen-iphone-portrait@2x.png" width="640" />
+		<splash height="1136" src="img/ios/screen-iphone-portrait-568h-2x.png" width="640" />
+		<splash height="1024" src="img/ios/screen-ipad-portrait.png" width="768" />
+		<splash height="2048" src="img/ios/screen-ipad-portrait@2x.png" width="1536" />
+		<splash height="768" src="img/ios/screen-ipad-landscape.png" width="1024" />	
+	</platform>
+	
+	<platform name="android">
+		<icon density="ldpi" src="img/android/icon-36-ldpi.png" />
+		<icon density="mdpi" src="img/android/icon-48-mdpi.png" />
+		<icon density="hdpi" src="img/android/icon-72-hdpi.png" />
+		<icon density="xhdpi" src="img/android/icon-96-xhdpi.png" />
+		<splash density="ldpi" src="img/android/screen-ldpi-portrait.png" />
+		<splash density="mdpi" src="img/android/screen-mdpi-portrait.png" />
+		<splash density="hdpi" src="img/android/screen-hdpi-portrait.png" />
+		<splash density="xhdpi" src="img/android/screen-xhdpi-portrait.png" />
+	</platform>
+	
+	
+	
+	
+	<platform name="android">	
+		<preference name="phonegap-version" value="cli-6.5.0" />
+	</platform>
+	<platform name="ios">	
+		<preference name="phonegap-version" value="cli-6.5.0" />
+	</platform>
+		
+    <preference name="orientation" value="portrait" />
+	
+	<platform name="ios">	
+		<preference name="fullscreen" value="true" />
+	</platform>
+	
+    <preference name="target-device" value="universal" />
+    <preference name="prerendered-icon" value="true" />    
+    <preference name="detect-data-types" value="false" />
+    <preference name="exit-on-suspend" value="false" />  
+	
+	<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="android-installLocation" value="auto" />	
+    <preference name="webviewbounce" value="false" />
+    <preference name="stay-in-webview" value="false" />
+        	
+	<preference name="SplashScreenDelay" value="2000" />
+	<preference name="FadeSplashScreen" value="false"/>
+
+	<preference name="StatusBarOverlaysWebView" value="false" />
+	<preference name="StatusBarBackgroundColor" value="#2a6ebb" />			
+	
+    <preference name="disable-cursor" value="false" />    
+    <icon src="icon.png" />
+    
+	<access origin="*" />    
+	<plugin name="cordova-plugin-whitelist" version="1" />
+	<allow-intent href="http://*/*" />
+	<allow-intent href="https://*/*" />
+
+	<!--## Enable to allow emailing of debug logs
+	<allow-intent href="mailto:*" launch-external="yes" />
+	-->   
+</widget>

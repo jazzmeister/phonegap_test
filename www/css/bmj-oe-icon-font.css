@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'bmj-oe-icon-font';
+  src: url('../fonts/bmj-oe-icon-font.eot');
+  src: url('../fonts/bmj-oe-icon-font.eot') format('embedded-opentype'),
+       url('../fonts/bmj-oe-icon-font.woff') format('woff'),
+       url('../fonts/bmj-oe-icon-font.ttf') format('truetype'),
+       url('../fonts/bmj-oe-icon-font.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'bmj-oe-icon-font';
+    src: url('../font/bmj-oe-icon-font.svg?22467874#bmj-oe-icon-font') format('svg');
+  }
+}
+*/
+ 
+ [class^="oe-icon-"]:before, [class*=" oe-icon-"]:before {
+  font-family: "bmj-oe-icon-font";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.oe-icon-mobile-app:before { content: '\e800'; } /* '' */
+.oe-icon-question-navigator:before { content: '\e814'; } /* '' */
+.oe-icon-work-smart:before { content: '\e802'; } /* '' */
+.oe-icon-work-hard:before { content: '\e803'; } /* '' */
+.oe-icon-performance-analysis:before { content: '\e804'; } /* '' */
+.oe-icon-test-weak-areas:before { content: '\e805'; } /* '' */
+.oe-icon-learning-journal:before { content: '\e806'; } /* '' */
+.oe-icon-support-you:before { content: '\e807'; } /* '' */
+.oe-icon-peer-comparison:before { content: '\e808'; } /* '' */
+.oe-icon-revision-notes:before { content: '\e809'; } /* '' */
+.oe-icon-revision-advice:before { content: '\e80a'; } /* '' */
+.oe-icon-number-of-questions:before { content: '\e80b'; } /* '' */
+.oe-icon-mock-tests:before { content: '\e80c'; } /* '' */
+.oe-icon-quality-of-questions:before { content: '\e801'; } /* '' */
+.oe-icon-closeness-to-exam:before { content: '\e80e'; } /* '' */
+.oe-icon-test-mode:before { content: '\e80f'; } /* '' */
+.oe-icon-directed-learning:before { content: '\e810'; } /* '' */
+.oe-icon-adapt-for-me:before { content: '\e811'; } /* '' */
+.oe-icon-flexible-pricing:before { content: '\e812'; } /* '' */
+.oe-icon-group-learning:before { content: '\e813'; } /* '' */
+.oe-icon-test-you:before { content: '\e819'; } /* '' */
+.oe-icon-key-learning-points:before { content: '\e818'; } /* '' */
+.oe-icon-connect-you:before { content: '\e817'; } /* '' */
+.oe-icon-track-you:before { content: '\e816'; } /* '' */
+.oe-icon-question-tags:before { content: '\e815'; } /* '' */
+.oe-icon-focus-you:before { content: '\e80d'; } /* '' */

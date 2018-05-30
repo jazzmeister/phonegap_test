@@ -1,0 +1,19 @@
+<!-- InQuestionMenuTemplate -->
+<!-- Popup in-question menu -->
+
+<ons-list>
+    <ons-list-header>Menu</ons-list-header>
+    <ons-list-item tappable class="homeLink">Home</ons-list-item>
+    <ons-list-item tappable id="sessionOverviewLink">Session Overview</ons-list-item>
+    <% if(isLoggedIn) { %>
+    	<ons-list-item tappable id="newRevisionSession">Start New Revision Session</ons-list-item>
+	<% } %>
+
+    <ons-list-header>Jump to</ons-list-header>
+    <ons-list-item tappable id="scrollToQuestion">Question</ons-list-item>
+    <ons-list-item tappable id="scrollToExplanation" style="<%= showIfAnswerIsVisible %>">Explanation</ons-list-item>
+    <% if(!inSessionReview) { %>
+    	<ons-list-item tappable id="scrollToRating" style="<%= showIfAnswerIsVisible %>">Question Rating</ons-list-item>
+    	<ons-list-item tappable id="scrollToFeedback" style="<%= showIfAnswerIsVisible %>">Question Feedback</ons-list-item>
+	<% } %>
+</ons-list>

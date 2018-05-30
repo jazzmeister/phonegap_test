@@ -1,0 +1,29 @@
+{
+  "name": "nexamination-mobile",
+  "version": "0.1.0",
+  "author": "BMJ",
+  "devDependencies": {
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-compass": "~0.6.0",
+    "grunt-contrib-imagemin": "~0.4.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-watch": "~0.5.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-uglify": "^3.0.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^11.1.0",
+    "postcss-short-color": "^3.0.0"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.1.0",
+    "gulp-debug": "^3.2.0",
+    "gulp-html2string": "^0.1.1",
+    "gulp-rename": "^1.2.2",
+    "pump": "^3.0.0"
+  }
+}

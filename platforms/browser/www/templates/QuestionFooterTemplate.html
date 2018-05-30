@@ -1,0 +1,28 @@
+<!-- QuestionFooterTemplate -->
+
+<ons-bottom-toolbar style="height:60px;">    			
+	<div id="examTimerSection" style="<%= showTimerCss %> text-align:center; color:#31708f; margin-top:2px; margin-bottom:10px;">
+		Time Taken: <span id="examTimer"><%= timer %></span>
+	</div>
+
+	<ons-row>
+		<ons-col width="33%">
+			<div style="text-align: left;">
+				<a href="#PreviousQuestion" class="skipQuestion button">Previous</a>
+			</div>
+		</ons-col>		        
+		<ons-col width="33%">
+			<div style="text-align: center;">
+				<a id="menuButton" class="button">
+					<span class="oe-icon oe-icon-question-navigator oe-icon-in-jqm-button"></span>
+					Overview
+				</a>
+			</div>
+		</ons-col>
+	    <ons-col width="33%">
+	    	<div style="text-align: right;">
+				<a href="#NextQuestion" class="skipQuestion button"><%= nextNavButtonText %></a>
+			</div>
+		</ons-col>
+	</ons-row>
+</ons-bottom-toolbar>

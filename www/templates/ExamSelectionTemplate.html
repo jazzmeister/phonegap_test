@@ -1,0 +1,23 @@
+<!-- ExamSelectionTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href="#" class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1>Exam SelectionS</h1>			
+	</div>
+	<div data-role="content">
+		<div data-role="fieldcontain">
+			<h1 class="pageHeading">What would you like to Revise?</h1>
+			<select name="examList" data-theme="e" id="examList">					
+			</select>
+		</div>
+			
+		<div class="marginBottom" style="<%= displayExamDateSection %>">				
+			<p id="examDate" data-date=""></p>
+			<a id="selectExamDate" data-theme="e" data-role="button" data-shadow="false">Set Exam Date</a>
+		</div>
+			
+		<div class="marginTop">                
+			<button id="selectExam" data-icon="check" data-theme="b" data-shadow="false"><%= selectExamButton %></button>			
+		</div>
+	</div>
+</ons-page>

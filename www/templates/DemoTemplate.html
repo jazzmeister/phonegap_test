@@ -1,0 +1,17 @@
+<!-- DemoTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1>Demo Questions</h1>		
+	</div>
+	<div data-role="content" class="demo">
+		<p>Test yourself with our sample of 25 exam format questions. At the moment our App is only available on our MRCP Part 1 resource but all of our other resources are coming soon.</p>
+		<p>To get more revision, visit the <a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">BMJ OnExamination website</a></p>
+		<br />
+		<button id="startQuestions" data-icon="arrow-r" data-theme="e">Start Demo Questions</button>
+		
+		<div class="webLink">
+			<a onclick="appLib.openLink('http://www.onexamination.com/?utm_source=<%= appLib.getDevice() %>-App&utm_medium=Link&utm_campaign=OE-Mobile-App');">Find out more about BMJ OnExamination.</a>  	
+		</div>
+	</div>	
+</ons-page>    

@@ -1,0 +1,50 @@
+<!-- RevisionTypeSelectionTemplate -->
+<ons-page>
+	<div data-role="header">
+		<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+		<h1>Revision Types</h1>						
+	</div>
+	<div data-role="content">			
+		<h1 class="pageHeading" style="padding-bottom:20px;">How would you like to Revise?</h1>			
+
+		<ul data-role="listview" data-theme="e" data-divider-theme="d" style="padding: 0px 20px;">				
+			<li>
+				<a id="selectWorkSmart">					
+					<div style="float:left; padding-top:10px;">
+						<span class="oe-icon-work-smart oe-icon"></span>
+					</div>
+					<div>
+						<h3>Choose Questions</h3>
+						<p>Personalise your revision session</p>
+					</div>
+				</a>
+			</li>				
+			<li id="coreQuestionsListButton" style="display:none;">
+				<a id="selectCoreQuestions">					
+					<div style="float:left; padding-top:10px;">
+						<span class="oe-icon-key-learning-points oe-icon"></span>
+					</div>
+					<div>
+						<h3>Core Questions</h3>
+						<p>Revise the core questions</p>
+					</div>
+				</a>
+			</li>		
+			<li id="mockTestListButton" style="display:none;">
+				<a id="selectMockTest">					
+					<div style="float:left; padding-top:10px;">
+						<span class="oe-icon-mock-tests oe-icon"></span>
+					</div>
+					<div>
+						<h3>Mock Test</h3>
+						<p>Tests created on recent exam themes</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<div style="padding:80px 5px;">
+			<a id="selectWorkHard" style="text-decoration:underline;">Work Hard</a>
+		</div>
+	</div>
+</ons-page>

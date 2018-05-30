@@ -1,0 +1,374 @@
+﻿<!DOCTYPE html>
+<html class="ui-mobile-rendering">
+<head>
+    <title>BMJ OnExamination</title>
+	<meta charset="utf-8" />
+
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+
+    <link rel="stylesheet" href="css/onsenui.min.css">
+	<link rel="stylesheet" href="css/onsen-css-components.min.css">	
+
+    <!-- Custom theme version -->        
+    
+    <link rel="stylesheet" href="css/bmj-oe-icon-font.css" />
+
+	<style>
+		#keyLearningPointsSection {
+			border-top: 1px dotted #2a6ebb;
+			padding: 20px 0px;
+		}
+		
+		#uploadingAnswers, .loading-spinner {
+			padding-left: 10px;
+			width: 20px;
+		}
+		
+
+
+
+		/*--- STAR RATING COMPONENT ---*/
+
+		.star-group {
+			border: none;
+		}
+
+		/* Empty star */		
+		.star-group .ui-btn-text:before {
+			content: "\2606";					
+		}
+
+		/* Selected filled star / Filled stars */
+		.star-group input[type=radio]:checked+label .ui-btn-text:before, .filled-star .ui-btn-text:before {
+			content: "\2605";
+			color: #EFDF00;
+			background-color: transparent;
+		}
+		
+		/* Hide star's radio input */
+		.star-group input[type=radio] {		    
+			display: none;
+		}
+
+
+		.star {
+			background-color: transparent;
+			border: 0;
+		}
+
+		.star .ui-btn-inner {
+    		padding: 0;
+		}
+
+		.star .ui-btn-text {
+			line-height: 45px;
+			font-size: 50px;
+			color: grey;
+		}		
+
+
+
+
+
+
+		/* Blue bar border on fixed footer  */
+		.ui-footer-fixed {
+			border-top: 1px solid #2a6ebb;
+		}
+
+		#questionFeedback {
+			min-height: 100px;
+		}
+
+		.bold {
+			font-weight: bold;
+		}
+
+		.contentHeader {
+			margin-bottom: 10px !important;
+		    margin-top: 20px !important;
+
+		    font-weight: bold;
+		    border-bottom: 1px solid #2a6ebb;
+		    background: #fff;
+		    color: #2a6ebb;
+
+		    font-size: 15px !important;
+		}
+
+		.contentGap {
+			padding-top: 30px !important;
+		}
+
+		.smallText {
+			font-size: 12.5px;
+		}		
+
+		#revisionFilterSummary {
+			font-size: 12.5px;
+			text-align: center;
+			color: black;
+		}
+
+
+		.oe-icon {
+		    font-size: 2em;
+    		line-height: 0;
+    		color: #2a6ebb;
+		}
+
+		.oe-icon-in-jqm-button:before {
+			vertical-align: middle; 
+			line-height: 0; 
+		    padding-top: 5px;
+		}
+
+
+		/* Horizontal scrollable tables inside question/answer */
+		.question table, .questionAnswer table {
+		    text-align: left !important;
+
+	        margin: 1em 0;
+		    overflow: auto;
+		    overflow-y: hidden;
+		    overflow-x: auto;
+		    display: block;
+		    width: 100% !important;
+		    border-collapse: collapse;
+		}
+
+		.question table tbody, .questionAnswer table tbody {
+			border: 1px solid #2a6ebb;
+		}
+
+		/* remove border from alphabetic tables */
+		.question table.alphaList tbody, .questionAnswer table.alphaList tbody {
+			border: none !important;
+		}
+
+		.question table tr th, .questionAnswer table tr th, .question table tr td, .questionAnswer table tr td {		    
+		    padding: 5px 8px !important;
+		    border: 1px dotted #ccc !important;
+		}
+
+		.question table tr th, .questionAnswer table tr th {		    
+		    background-color: rgb(242, 248, 252);
+		}
+
+		/* Fix for some answers having text in h3 tags that's not visible! */
+		.questionAnswer h3 {
+			font-size: 1em;
+			color: black;
+		}
+
+
+		/* Remove border around Work Smart 'Show Advanced Options' checkbox */
+		label[for=workSmartAdvancedFilter] {
+			border: 0;
+		}
+
+
+		/* Difficulty slider handle fix (not centred) */
+		.sliderWrapper a {
+			margin-left: -14px !important;
+		}
+
+		.betaMode {
+			border-top: 20px solid yellow !important;
+		}
+
+		.betaMode .ui-header {
+			background-color: yellow !important;
+		}
+	</style>
+	
+	
+
+	<!-- Javascript -->		
+    <script type="text/javascript" src="cordova.js"></script>   
+	 
+    <!-- Scripts -->    
+    <script src="lib/bottle.min.js"></script>
+    <script src="lib/json2.js"></script>
+
+	<script src="lib/onsenui.js"></script>
+	<script src="lib/jquery-3.3.1.min.js"></script>
+        
+    <script src="lib/underscore-min.js"></script>
+    <script src="lib/backbone-min.js"></script>    
+    <script src="lib/es6-promise.min.js"></script>    
+    <script src="lib/jquery.imagesloaded.min.js" type="text/javascript"></script>	
+	
+    <script language="javascript" type="text/javascript" src="lib/jquery.flot.js"></script>
+    <script language="javascript" type="text/javascript" src="lib/jquery.flot.pie.js"></script>	
+	
+    <script>
+    	//## Output template HTML to the console as each view is rendered
+    	var copyOfUnderscoreTemplateFunc = _.template;
+		_.template = function(t) { 
+			var templateGenerator = copyOfUnderscoreTemplateFunc(t); 
+
+			var wrappedFunc = function(options) { 
+				appLib.log(templateGenerator(options), 'background-color:purple;color:white;padding:1px;'); 
+				return templateGenerator(options); 
+			};
+			return wrappedFunc;
+		};
+    </script>
+
+	<script src="js/templates.js"></script>	
+	<script src="js/init.js"></script>	
+	<script src="js/imageLib.js"></script>	
+    <script src="js/models.js"></script>
+    <script src="js/demoQuestions.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/appLib.js"></script>
+    <script src="js/pushNotification.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/routes.js"></script>     
+
+    <script src="js/jqm-config.js"></script>
+
+    <script type="text/javascript">	
+        var analytics;       	
+		var app;
+		var sessionTimerHandler;
+		var isAppPaused = false;
+		
+		function setupPush() {
+			var push = PushNotification.init({
+		       	"android": {	
+					"senderID": "1020767383441",		// live
+					//"senderID": "688406263350",			// dev
+					"icon": "transparenticon",
+        			"iconColor": "#3b7cca"
+		       	},
+		       	"ios": {
+		         	"sound": true,
+		         	"alert": true,
+		         	"badge": true
+		       	}
+		   	});
+
+		   	appLib.log('Push init complete');
+
+		   	push.on('registration', pushNotification.onRegistration);
+		   	push.on('error', pushNotification.onError);
+			push.on('notification', pushNotification.onNotification);
+		}
+
+
+		function onDeviceReady() {						
+			app = new AppRouter();
+			Backbone.history.start();
+			
+			appLib.log('On Device Ready');
+			
+			//## Android: Return to home screen if back button is pressed, if already on home screen then exit app
+			document.addEventListener("backbutton", function() { 
+				if(appLib.isUIMasked())
+					return;
+				
+				if($('#mainmenu').length > 0) {
+					if(appLib.getDeviceMajorVersion() < 5) {
+						//## Bug in Cordova splash screen plugin on Android 4.x when exited via back button and then re-opened. So disallow exit via back button!
+						return;
+					}
+				
+					//## Exit app
+					appLib.log('Exiting app...');
+					setTimeout(function() { navigator.app.exitApp(); });
+				} else {
+					//## Return to homepage
+					appLib.log('Return to homepage');
+					app.trigger('home'); 
+				}
+			}, false);
+			
+			//## Android: Return to home screen if menu button is pressed
+			document.addEventListener("menubutton", function() { 
+				if(!appLib.isUIMasked())
+					app.trigger('home'); 
+			}, false);	
+
+
+			//## Tracks if app is in foreground (visible) or background (hidden)
+			document.addEventListener("pause", function() { 
+				isAppPaused = true;
+			}, false);	
+
+			document.addEventListener("resume", function() { 
+				isAppPaused = false;
+			}, false);	
+
+			
+			//## Android: Hide status bar when UI receives a click (ussue since fullscreen mode changed in upgrade to Cordova 5)
+			if(appLib.getDevice() === 'android') {
+				$(document).on('click', 'body', function(e) {
+					try {						
+						StatusBar.hide();
+					} catch(err) {
+					}
+				});
+			}
+			
+			//## Attempt to setup GA tracker
+			try {
+				analytics = window.plugins.gaPlugin;											
+				analytics.init(function() { appLib.log('ga success'); }, function() { appLib.log('ga fail'); }, "UA-140972-23", 10);
+			} catch(err) {
+				appLib.log(err);				
+			}	
+
+
+			//## Setup session question timer
+			try {				
+				sessionTimerHandler = window.setInterval(oe.sessionTimerFunc, 1000);
+				appLib.log('Session Timer Setup');
+			} catch(err) {
+				appLib.log('Error during Session Timer Setup');
+				appLib.trackEvent('Error', 'Setup Question Timer', err);
+			}
+
+			try {
+				setupPush();
+			} catch(err) {
+				appLib.log('Error during Push Notification Setup: ' + err);
+				appLib.trackEvent('Error', 'Setup Push Notification', err);	
+			}
+
+			try {
+				mobileEventInit();
+			} catch(err) {
+				appLib.log('Error during Mobile Event Init: ' + err);
+				appLib.trackEvent('Error', 'Mobile Event Init', err);		
+			}
+ 	    }	
+        				
+
+		function onLoad() {
+			if(appLib.isPhoneGap()) {
+				document.addEventListener("deviceready", onDeviceReady, false);
+			} else {
+				$(document).ready(function() {
+					onDeviceReady();
+				});
+			}
+		}
+		
+		
+		function onUnload() {
+			try {
+				//## Attempt to unload GA plugin
+				analytics.exit(function() { }, function() { });
+			} catch(e) { 
+			}
+		}
+	</script>
+
+</head>
+
+<body onload="onLoad();" onunload="onUnload();">	
+</body>
+
+</html>

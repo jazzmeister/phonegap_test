@@ -1,0 +1,30 @@
+<!-- RatingTemplate -->
+
+<h5 class="contentHeader" id="rateQuestionHeader">Rate this question</h5>
+
+<fieldset class="star-group">			
+	<input type="radio" name="question-option-rating" id="question-option-rating1" <%= (rating === 1 ? 'checked' : '') %> value="1" />
+	<label for="question-option-rating1" class="star <%= (rating >= 1 ? 'filled-star' : '') %>">
+		<span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text"></span></span>
+	</label>					
+
+	<input type="radio" name="question-option-rating" id="question-option-rating2" <%= (rating === 2 ? 'checked' : '') %> value="2" />
+	<label for="question-option-rating2" class="star <%= (rating >= 2 ? 'filled-star' : '') %>">
+		<span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text"></span></span>
+	</label>
+
+	<input type="radio" name="question-option-rating" id="question-option-rating3" <%= (rating === 3 ? 'checked' : '') %> value="3" />
+	<label for="question-option-rating3" class="star <%= (rating >= 3 ? 'filled-star' : '') %>">
+		<span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text"></span></span>
+	</label>
+
+	<input type="radio" name="question-option-rating" id="question-option-rating4" <%= (rating === 4 ? 'checked' : '') %> value="4" />
+	<label for="question-option-rating4" class="star <%= (rating >= 4 ? 'filled-star' : '') %>">
+		<span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text"></span></span>
+	</label>
+
+	<input type="radio" name="question-option-rating" id="question-option-rating5" <%= (rating === 5 ? 'checked' : '') %> value="5" />
+	<label for="question-option-rating5" class="star <%= (rating == 5 ? 'filled-star' : '') %>">
+		<span class="ui-btn-inner ui-corner-left"><span class="ui-btn-text"></span></span>
+	</label>
+</fieldset>	

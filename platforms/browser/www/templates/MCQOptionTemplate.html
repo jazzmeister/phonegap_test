@@ -1,0 +1,16 @@
+<!-- MCQOptionTemplate -->
+<!-- MCQ Options -->
+
+<div class="mcqOptionRow">
+	<span class="mcqOptionText">
+		<%= answerText %>
+	</span>
+	<span class="mcqOption">
+		<fieldset data-role="controlgroup" data-theme="e" data-type="horizontal">
+			<input type="radio" name="question-option-<%= id %>" id="question-option-<%= id %>-true" data-theme="e"  value="1" />
+			<label for="question-option-<%= id %>-true">True</label>
+			<input type="radio" name="question-option-<%= id %>" id="question-option-<%= id %>-false" data-theme="e" value="0" />
+			<label for="question-option-<%= id %>-false">False</label>
+		</fieldset>
+	</span>
+</div>	

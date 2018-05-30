@@ -1,0 +1,27 @@
+<!-- NotificationTimeSelectionTemplate -->
+<h4 style="font-weight: bold;">Daily Notification</h4>
+
+<div>
+	<div data-role="fieldcontain" class="marginBottom">
+		<label for="notificationTime">What time would you like your daily notification?</label>
+		<select id="notificationTime" class="jqmSelect" data-theme="e">
+			<option value="-1">No Notification</option>
+
+			<% 
+				for(var hour = 0; hour < 24; hour++) { 
+					for(var minute = 0; minute < 60; minute += 30) {
+
+						var mins = (hour * 60) + minute;								
+			%>
+						<option value="<%= mins %>" <%= (mins == selectedTime ? "selected" : "") %>>
+							<%= appLib.right('0' + hour, 2) %>:<%= appLib.right('0' + minute, 2) %>
+						</option>			
+			<%
+					} 
+				}
+			%>											
+		</select>
+	</div>
+
+	<button id="saveNotification" class="jqmButton" data-theme="b" data-shadow="false">Save</button>
+</div>

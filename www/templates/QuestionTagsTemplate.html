@@ -1,0 +1,35 @@
+<!-- QuestionTagsTemplate -->
+<h1 class="contentHeader" style="margin-top: 0px !important;">OnExamination Tags</h1>
+			
+<% if(globalTags.length < 1) { %>
+	<p class="smallText">This question has no OnExamination tags</p>
+<% } else { %>
+	<ul data-role="listview" data-theme="b" data-inset="true" data-mini="true">
+<% 		_.each(globalTags, function(tag) { %>
+			<li data-theme="b" data-mini="true">
+				<!-- must be better workaround as mini is not working on read-only lists! -->
+				<label style="font-size:12.5px;">
+					<%= tag.Text %>								
+				</label>
+			</li>            			
+<%		}); %>
+	</ul>			
+<% } %>	
+<div style="padding-top:10px"></div>			
+
+
+<h1 class="contentHeader" style="margin-top: 0px !important;">Your Tags</h1>				
+<% if(userTags.length < 1) { %>
+	<p class="smallText">You have not tagged this question</p>
+<% } else { %>
+	<ul data-role="listview" data-theme="e" data-inset="true" data-mini="true">
+<% 		_.each(userTags, function(tag) { %>
+			<li data-theme="e" data-icon="delete" data-mini="true" class="deleteTag" data-tag="<%= tag.Text %>" data-qid="<%= tag.Qid %>">
+				<a><%= tag.Text %></a>	
+			</li>		
+<%		}); %>					
+	</ul>
+<% } %>
+<div style="padding-top:10px"></div>
+	
+<button id="addTag" data-theme="d" data-shadow="false" data-mini="true" data-qid="<%= qid %>">Add Tag</button>					

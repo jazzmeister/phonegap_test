@@ -1,0 +1,28 @@
+<!-- ReceivedChallengeTemplate -->
+
+<ons-page>
+    <div data-role="header">
+    	<a href='#' class="homeButton" data-role="button" data-icon="home" data-mini="true">Home</a>
+    	<h1>Received a challenge?</h1>
+    </div>
+
+    <div data-role="content" class="settings">
+    	<h1 class="contentHeader">Emailed a PIN?</h1>
+    	<p>To start your assessment challenge please enter your email and the PIN you were sent:</p>
+    	<div class="ui-hide-label">
+			<fieldset data-role="controlgroup">
+				<label for="email">Email address</label>
+				<input id="email" placeholder="email" value="" type="email" pattern="[^ @]*@[^ @]*" class="marginBottom" />
+				<label for="pin">Password</label>
+				<input id="pin" placeholder="PIN" value="" type="text" />	
+			</fieldset>
+			
+			<button id="startAssessment" data-theme="e" data-icon="arrow-r" data-shadow="false">Start Assessment</button>
+		</div>
+
+		<div class="contentGap" />
+
+    	<h1 class="contentHeader">Already have an onExamination account?</h1>
+    	<button id="login" data-theme="b" data-icon="arrow-r" data-shadow="false">Sign in to see your challenges</button>        	
+	</div>
+</ons-page>

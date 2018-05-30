@@ -1,0 +1,47 @@
+<!-- SJQTemplate -->
+<!-- Ask a SJQ Question -->	
+
+<ons-page>
+    <ons-toolbar>
+    	<% if(sessionType !== 'notification') { %>
+    		<div class="left">
+	        	<ons-toolbar-button class="inQuestionMenuButton">
+	        		<ons-icon icon="md-menu"></ons-icon>	        			        		
+	        	</ons-toolbar-button>	        	
+        	</div>
+        	<div class="center"><%= questionIndex %> of <%= questionCount %></div>
+        	<div class="right">
+	        	<ons-toolbar-button id="session-review-button" class="sessionReview" style="<%= reviewButtonStyle %>" >Review</ons-toolbar-button>
+    		</div>
+            
+    	<% } else { %>        	
+    		<div class="center">Daily Question</div>
+    	<% } %>
+    </ons-toolbar>
+
+    <div data-role="content" class="questionPage">
+        <div class="question">
+	        <h5 class="contentHeader">Question</h5>
+	        <%= text %>
+        </div>
+		            
+        <table class="sjqAnswersTable" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<th class="sjqInstruction ui-bar-a "><p><%= selectionInfo %></p></th>
+			</tr>
+	        <%= optionHtml %>
+        </table>
+        		
+		<div class="ui-grid-solo">
+			<div class="ui-block-a marginTop answerButton">
+				<button id="answer-button" data-theme="b" data-icon="arrow-r" data-iconpos="right" data-shadow="false">Answer Question</button>
+			</div>
+		</div>	
+
+		<div class="contentGap"></div>
+
+		<%= contentEnd %>        
+	</div>
+
+	<%= footer %>
+</ons-page>

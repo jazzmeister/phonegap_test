@@ -1,0 +1,55 @@
+<!-- EMQAnsweredTemplate -->
+<!-- View EMQ Answer -->	
+
+<ons-page>
+    <ons-toolbar>
+        <% if(sessionType !== 'notification') { %>
+            <div class="left">
+                <ons-toolbar-button class="inQuestionMenuButton">
+                    <ons-icon icon="md-menu"></ons-icon>                                        
+                </ons-toolbar-button>               
+            </div>
+            <div class="center">
+                <%= questionIndex %> of <%= questionCount %>                    
+            </div>
+            <div class="right">
+                <a href="#NextQuestion" class="button button--quiet"><%= nextNavButtonText %></a>
+            </div>            
+        <% } else { %>        
+            <div class="left">
+                <a href="#" class="button button--quiet">Home</a>
+            </div>
+            <div class="center">
+                Daily Question
+            </div>
+        <% } %>
+    </ons-toolbar>
+			
+    <div data-role="content" class="answerPage" data-qid="<%= id %>">		
+		<div style="padding-bottom:30px; <%= exitAnswerReviewStyle %>" id='exitAnswerReview'>
+			<a href="#SessionReview" data-icon="back" data-theme="a" data-role="button" data-shadow="false" data-inline="false">Exit Answer Review</a>
+		</div>
+	
+        <h2 class="<%= resultColour %>"><%= result %></h2>
+        <div class="questionAnswer">
+	        <h5 class="contentHeader">Explanation</h5>
+	        <%= comment %>
+        </div>			
+
+        <div class="questionAnswer">                
+            <table class='alphaList'>
+                <%= choiceList %>
+            </table>
+	        
+	        <span class="emqInstruction"><%= text %></span>
+        </div>
+                    
+	    <%= stemHtml %>            
+
+	    <div class="contentGap"></div>
+
+	    <%= contentEnd %>	        		
+    </div>
+
+	<%= footer %>
+</ons-page>		
