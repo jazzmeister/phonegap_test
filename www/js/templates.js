@@ -461,18 +461,110 @@ oeTemplates['LoginTemplate.html'] = "<!-- LoginTemplate -->\n" +
     "				<label for=\"password\">Password</label>\n" +
     "				<input id=\"password\" placeholder=\"password\" value=\"\" type=\"password\" />	\n" +
     "			</fieldset>\n" +
+    "\n" +
     "			<br />\n" +
     "			<button id=\"login-button\" data-theme=\"e\" data-icon=\"arrow-r\" data-shadow=\"false\">Sign In</button>\n" +
     "		</div>\n" +
     "		<br />\n" +
+    "\n" +
+    "<!-- test swipe here -->\n" +
+    "\n" +
+    "		\n" +
+    "\n" +
+    "\n" +
+    "    <ons-toolbar>\n" +
+    "      <div class=\"left\">\n" +
+    "        <ons-back-button>Home</ons-back-button>\n" +
+    "      </div>\n" +
+    "      <div class=\"center\"></div>\n" +
+    "    </ons-toolbar>\n" +
+    "		<ons-carousel id=\"carousel\" fullscreen swipeable auto-scroll overscrollable initial-index=\"0\">\n" +
+    "		      <ons-carousel-item class=\"carousel-item\" style=\"background-color: gray\">\n" +
+    "		        <div class=\"color-tag\">Gray</div>\n" +
+    "		      </ons-carousel-item>\n" +
+    "		      <ons-carousel-item class=\"carousel-item\" style=\"background-color: #085078\">\n" +
+    "		        <div class=\"color-tag\">Blue</div>\n" +
+    "		      </ons-carousel-item>\n" +
+    "		      <ons-carousel-item class=\"carousel-item\" style=\"background-color: #373B44\">\n" +
+    "		        <div class=\"color-tag\">Dark</div>\n" +
+    "		      </ons-carousel-item>\n" +
+    "		      <ons-carousel-item class=\"carousel-item\" style=\"background-color: #D38312\">\n" +
+    "		        <div class=\"color-tag\">Orange</div>\n" +
+    "		      </ons-carousel-item>\n" +
+    "		    </ons-carousel>\n" +
+    "\n" +
+    "		    <div class=\"dots\">\n" +
+    "		      <span id=\"dot0\" class=\"dot\" onclick=\"fn.swipe(this)\">\n" +
+    "		        &#9679;\n" +
+    "		      </span>\n" +
+    "		      <span id=\"dot1\" class=\"dot\" onclick=\"fn.swipe(this)\">\n" +
+    "		        &#9675;\n" +
+    "		      </span>\n" +
+    "		      <span id=\"dot2\" class=\"dot\" onclick=\"fn.swipe(this)\">\n" +
+    "		        &#9675;\n" +
+    "		      </span>\n" +
+    "		      <span id=\"dot3\" class=\"dot\" onclick=\"fn.swipe(this)\">\n" +
+    "		        &#9675;\n" +
+    "		      </span>\n" +
+    "		    </div>\n" +
+    "\n" +
+    "		    <script>\n" +
+    "		      ons.getScriptPage().onInit = function () {\n" +
+    "		        this.querySelector('ons-toolbar div.center').textContent = this.data.title;\n" +
+    "		        const carousel = document.getElementById('carousel');\n" +
+    "		        carousel.addEventListener('postchange', function () {\n" +
+    "		          var index = carousel.getActiveIndex();\n" +
+    "		          const dots = document.querySelectorAll('.dot');\n" +
+    "		          for (dot of dots) {\n" +
+    "		            dot.innerHTML = dot.id === 'dot' + index ? '&#9679;' : '&#9675;';\n" +
+    "		          }\n" +
+    "		        });\n" +
+    "		        window.fn.swipe = function (target) {\n" +
+    "		          carousel.setActiveIndex(Number(target.id.slice(-1)));\n" +
+    "		        }\n" +
+    "		      }\n" +
+    "		    </script>\n" +
+    "\n" +
+    "		    <style>\n" +
+    "		      .carousel-item {\n" +
+    "		        display: flex;\n" +
+    "		        justify-content: space-around;\n" +
+    "		        align-items: center;\n" +
+    "		      }\n" +
+    "\n" +
+    "		      .color-tag {\n" +
+    "		        color: #fff;\n" +
+    "		        font-size: 48px;\n" +
+    "		        font-weight: bold;\n" +
+    "		        text-transform: uppercase;\n" +
+    "		      }\n" +
+    "\n" +
+    "		      .dots {\n" +
+    "		        text-align: center;\n" +
+    "		        font-size: 30px;\n" +
+    "		        color: #fff;\n" +
+    "		        position: absolute;\n" +
+    "		        bottom: 40px;\n" +
+    "		        left: 0;\n" +
+    "		        right: 0;\n" +
+    "		      }\n" +
+    "\n" +
+    "		      .dots > span {\n" +
+    "		        cursor: pointer;\n" +
+    "		      }\n" +
+    "		    </style>\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "<!-- end of test swipe -->\n" +
+    "\n" +
+    "\n" +
+    "\n" +
+    "\n" +
     "			\n" +
     "		<div class=\"hr\"><hr /></div>\n" +
-    "\n" +
-    "		<ons-gesture-detector>\n" +
-    "			  <div id=\"detect-area\" style=\"width: 200px; height: 300px; background-color: red;\">\n" +
-    "			    Swipe Here\n" +
-    "			  </div>\n" +
-    "			</ons-gesture-detector>\n" +
     "\n" +
     "		\n" +
     "		<div style=\"<%= demoModeStyle %>\">\n" +
@@ -490,14 +582,6 @@ oeTemplates['LoginTemplate.html'] = "<!-- LoginTemplate -->\n" +
     "		</div>\n" +
     "	</div>\n" +
     "</ons-page>\n" +
-    "<script>\n" +
-    "  document.addEventListener('swipeleft', function(event) {\n" +
-    "    if (event.target.matches('#detect-area')) {\n" +
-    "    	pushPage('homeTemplate.html', {data: {title: 'Page 2'}});\n" +
-    "      console.log('Swipe left is detected.');\n" +
-    "    }\n" +
-    "  });\n" +
-    "</script>\n" +
     ""; 
 if(typeof oeTemplates === 'undefined') {var oeTemplates = {};}
 oeTemplates['MCQAnsweredTemplate.html'] = "<!-- MCQAnsweredTemplate -->\n" +
